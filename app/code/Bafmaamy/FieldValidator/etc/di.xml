@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\Logger\Monolog">
+        <arguments>
+            <argument name="handlers" xsi:type="array">
+                <item name="custom_logger" xsi:type="object">Bafmaamy\FieldValidator\Logger\Handler\CustomHandler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Bafmaamy\FieldValidator\Logger\CustomLogger">
+        <arguments>
+            <argument name="name" xsi:type="string">custom_order</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="stream" xsi:type="object">Bafmaamy\FieldValidator\Logger\Handler\CustomHandler</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Sales\Api\OrderRepositoryInterface">
+    <plugin name="order_source_logger" type="Bafmaamy\FieldValidator\Plugin\OrderSourceLogger" />
+</type>
+    <type name="Magento\Customer\Api\AccountManagementInterface">
+        <plugin name="customer_account_logger" type="Bafmaamy\FieldValidator\Plugin\OrderSourceLogger" />
+    </type>
+    <type name="Magento\Customer\Model\ResourceModel\Customer">
+        <plugin name="custom_before_save_customer_validation" type="Bafmaamy\FieldValidator\Plugin\CustomerSavePlugin"/>
+    </type>
+    <type name="Magento\Customer\Model\AccountManagement">
+        <plugin name="custom_before_create_account_validation" type="Bafmaamy\FieldValidator\Plugin\CreateAccountPlugin"/>
+    </type>
+    <type name="Magento\Customer\Api\AddressRepositoryInterface">
+    <plugin name="bafmaamy_address_save_plugin" type="Bafmaamy\FieldValidator\Plugin\AddressSavePlugin" />
+</type>
+</config>
