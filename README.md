@@ -9,7 +9,7 @@ Email notifications for each unsuccessful attempt.
 Set your email in these 4 files:
     **AddressSavePlugin.php, CreateAccountPlugin.php, CustomerSavePlugin.php, OrderSourceLogger.php**
     
-If you don't like to receive notifications -> comment:
+If you don't want to receive notifications -> comment:
 
         $command = 'echo "' . addslashes($message) . '" | mailx -s "Unsuccessful attempt" your@email.com';
         exec($command, $output, $returnVar);
