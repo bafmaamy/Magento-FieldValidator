@@ -1,6 +1,10 @@
 Disallow random code injection in Magento 2 trough API or WEB requests for:
 **Order Creation, Customer Creation, Customer Name Update, Customer Address Update**
 
+Characters like - **{, }, <, >, %**  will be rejected. Update or remove them if necessery:
+
+      if (preg_match('/[{}<>%]/', $input)) {
+
 Email notifications for each unsuccessful attempt.
 Set your email in these 4 files:
     **AddressSavePlugin.php, CreateAccountPlugin.php, CustomerSavePlugin.php, OrderSourceLogger.php**
