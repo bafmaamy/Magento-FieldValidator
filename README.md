@@ -12,7 +12,7 @@ If you don't like to receive notifications -> comment:
         if ($returnVar !== 0) {
             throw new \Exception("Failed to send email. Command output: " . implode("\n", $output));
         }
-All requests will be saved here:     **'/magento/var/log/custom_order.log'**;
+All requests will be saved here:     **'/magento/var/log/custom_order.log'**; and sended via email:
 
       Unsuccessful order attempt:
       Error Message: Invalid characters in First Name.
