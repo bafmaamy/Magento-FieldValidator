@@ -26,6 +26,13 @@ class AddressSavePlugin
             $this->validateInput($address->getFirstname(), 'First Name');
             $this->validateInput($address->getLastname(), 'Last Name');
             $this->validateInput($address->getTelephone(), 'Phone Number');
+             // Validate State/Region
+            $region = $address->getRegion();
+            if ($region) {
+                $this->validateInput($region->getRegion(), 'State/Region Name');
+		        $this->validateInput($region->getRegionCode(), 'State/Region Code');
+		        $this->validateInput($region->getRegionId(), 'State/Region ID');
+	        }
             // Validate each street address line
             $streetLines = $address->getStreet();
             foreach ($streetLines as $key => $streetLine) {
