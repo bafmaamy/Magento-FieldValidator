@@ -62,8 +62,8 @@ class OrderSourceLogger
 	            $this->validateInput($billingRegion->getRegion(), 'Billing State/Region Name');
 	            $this->validateInput($billingRegion->getRegionCode(), 'Billing State/Region Code');
 	            $this->validateInput($billingRegion->getRegionId(), 'Billing State/Region ID');
+                }
             }
-
             if ($shippingAddress) {
                 $this->validateInput($shippingAddress->getCompany(), 'Shipping Company');
                 $this->validateInput($shippingAddress->getCity(), 'Shipping City');
@@ -92,7 +92,7 @@ class OrderSourceLogger
                 'User Agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown User Agent',
                 'Request URI' => $_SERVER['REQUEST_URI'] ?? 'Unknown URI',
             ]);
-	    }
+	    
         } catch (InputException $e) {
             // Log the unsuccessful attempt
             $this->logger->warning('Unsuccessful order attempt: ' . $e->getMessage(), [
