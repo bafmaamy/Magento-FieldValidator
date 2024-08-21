@@ -92,6 +92,7 @@ class OrderSourceLogger
                 'User Agent' => $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown User Agent',
                 'Request URI' => $_SERVER['REQUEST_URI'] ?? 'Unknown URI',
             ]);
+	    }
         } catch (InputException $e) {
             // Log the unsuccessful attempt
             $this->logger->warning('Unsuccessful order attempt: ' . $e->getMessage(), [
