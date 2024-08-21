@@ -11,6 +11,8 @@ Characters like - **{, }, <, >, %** will be rejected from every field. Update or
 
       if (preg_match('/[{}<>%]/', $input)) {
 
+
+
 Email notifications for each unsuccessful attempt.
 Set your email in these 4 files:
     **AddressSavePlugin.php, CreateAccountPlugin.php, CustomerSavePlugin.php, OrderSourceLogger.php**
@@ -24,6 +26,8 @@ If you don't want to receive notifications -> comment:
         if ($returnVar !== 0) {
             throw new \Exception("Failed to send email. Command output: " . implode("\n", $output));
         }
+
+
 All requests will be saved here:     **'/magento/var/log/custom_order.log'**; and send via email:
 
       Unsuccessful order attempt:
